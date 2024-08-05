@@ -1,0 +1,23 @@
+version: '3.4'
+name: "main-service"
+
+services:
+    
+  nginx:
+    image: nginx:latest
+    volumes:
+      - type: bind
+        source: ./nginx
+        target: /etc/nginx/conf.d
+        read_only: true
+    ports:
+      - "${EXTERNAL_NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}"
+      - "${EXTERNAL_NGINX_HTTPS_PORT}:${NGINX_HTTPS_PORT}"
+    networks:
+      - my-services-network
+    restart: unless-stopped
+
+networks:
+  my-services-network:
+    external: true
+    
