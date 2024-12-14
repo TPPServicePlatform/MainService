@@ -16,7 +16,7 @@ This script is used to import the needed libraries for a given repository. The n
 3. Run the script with the name of the destination repository as an argument:
 
     ```sh
-    .MainService/run_import.sh <destination repository>
+    MainService/run_import.sh <destination repository>
     ```
 
 > **Note:** The script will install the required libraries in the destination repository.
